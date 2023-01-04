@@ -33,5 +33,6 @@ export type InitialData =
     La      : number,
     Wa      : number,
     Td      : number,
-    Ks3     : number
+    Ks3     : number,
+    area    : 'underground' | 'air'
 }

@@ -1,10 +1,9 @@
-<script lang="ts" setup>
-    import { ref } from 'vue';
+<script lang="ts" setup>import type { OptionDescription } from '@/assets/script/OptionDescriptoponType';
 
     const emits = defineEmits(['update:modelValue']);
     //console.log(emits.call(null, 'update:modelValue', 1));
     
-    var props = defineProps(['modelValue', 'type', 'label', 'default', 'min', 'max']);
+    var props = defineProps(['modelValue', 'label', 'default', 'options']);
 
     if(props.default !== undefined) {
         emits.call(null, 'update:modelValue', props.default);
@@ -20,7 +19,9 @@
             <div class="label">
                 <p>{{ label }}:</p>
             </div>
-            <input :type="type == undefined ? 'text' : type" :placeholder="label" :value="modelValue" @input="onInput($event as InputEvent)" :min="min" :max="max">
+            <select placeholder="test" :value="modelValue" @input="onInput($event as InputEvent)">
+                <option v-for="option in (options as OptionDescription[])" :value="option.value">{{ option.name }}</option>
+            </select>
         </div>
     </div>
 </template>
@@ -36,7 +37,7 @@
     
     input {
         box-sizing: border-box;
-        padding: 10px;
+        padding: 15px;
     }
     .label {
         display: flex;
