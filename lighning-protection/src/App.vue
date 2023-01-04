@@ -1,7 +1,6 @@
 <script setup lang="ts">
   import { ref } from 'vue';
-import InitialDataComponent from './components/InitialDataComponent.vue';
-  import ValueInput from './components/ValueInput.vue';
+  import InitialDataComponent from './components/InitialDataComponent.vue';
   
   var a = ref('123d');
 </script>

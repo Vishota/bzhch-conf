@@ -1,9 +1,10 @@
 <script lang="ts" setup>import type { OptionDescription } from '@/assets/script/OptionDescriptoponType';
+import TooltipComponent from './TooltipComponent.vue';
 
     const emits = defineEmits(['update:modelValue']);
     //console.log(emits.call(null, 'update:modelValue', 1));
     
-    var props = defineProps(['modelValue', 'label', 'default', 'options']);
+    var props = defineProps(['modelValue', 'label', 'default', 'options', 'tooltip']);
 
     if(props.default !== undefined) {
         emits.call(null, 'update:modelValue', props.default);
@@ -18,6 +19,7 @@
         <div class="container">
             <div class="label">
                 <p>{{ label }}:</p>
+                <TooltipComponent :text="tooltip" />
             </div>
             <select placeholder="test" :value="modelValue" @input="onInput($event as InputEvent)">
                 <option v-for="option in (options as OptionDescription[])" :value="option.value">{{ option.name }}</option>

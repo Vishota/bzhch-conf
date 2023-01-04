@@ -2,5 +2,6 @@ export type InputDescription =
 {
     label: string,
     modelKey: string,
-    default?: any
+    default?: any,
+    tooltip?: string
 }

@@ -1,10 +1,9 @@
 <script lang="ts" setup>
-    import { ref } from 'vue';
+    import TooltipComponent from './TooltipComponent.vue';
 
-    const emits = defineEmits(['update:modelValue']);
-    //console.log(emits.call(null, 'update:modelValue', 1));
+    const emits = defineEmits(['update:modelValue']);;
     
-    var props = defineProps(['modelValue', 'type', 'label', 'default', 'min', 'max']);
+    var props = defineProps(['modelValue', 'type', 'label', 'default', 'min', 'max', 'tooltip']);
 
     if(props.default !== undefined) {
         emits.call(null, 'update:modelValue', props.default);
@@ -19,6 +18,7 @@
         <div class="container">
             <div class="label">
                 <p>{{ label }}:</p>
+                <TooltipComponent :text="tooltip" />
             </div>
             <input :type="type == undefined ? 'text' : type" :placeholder="label" :value="modelValue" @input="onInput($event as InputEvent)" :min="min" :max="max">
         </div>

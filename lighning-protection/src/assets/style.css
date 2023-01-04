@@ -1,0 +1,17 @@
+body {
+    background-color: var(--back);
+    color: var(--content);
+}
+button, select, input {
+    background-color: var(--blocks);
+    color: var(--content);
+    border-radius: 5px;
+    border: 1px solid var(--dark)
+}
+button:focus, select:focus, input:focus {
+    border: 1px solid var(--accent)
+}
+::selection {
+    background-color: var(--accent);
+    color: var(--dark);
+}
