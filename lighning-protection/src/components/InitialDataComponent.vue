@@ -1,50 +1,53 @@
 <script lang="ts" setup>
     import type { InitialData } from '@/assets/script/InitialDataType';
+    import { reactive } from 'vue';
     import ValueInput from './ValueInput.vue';
+    import type { InputDescription } from '../assets/script/InputDescriptionType';
 
-    var data : InitialData = {} as InitialData;
-
-    const a = [
-        { model:data.Pa    , label:'Pa '},
-        { model:data.ra    , label:'ra '},
-        { model:data.Lt    , label:'Lt '},
-        { model:data.Pb    , label:'Pb '},
-        { model:data.rp    , label:'rp '},
-        { model:data.hz    , label:'hz '},
-        { model:data.rf    , label:'rf '},
-        { model:data.Lf    , label:'Lf '},
-        { model:data.Pc    , label:'Pc '},
-        { model:data.Lm    , label:'Lm '},
-        { model:data.Ce    , label:'Ce '},
-        { model:data.Ks1   , label:'Ks1'},
-        { model:data.Uw    , label:'Uw '},
-        { model:data.Pu    , label:'Pu '},
-        { model:data.Pv    , label:'Pv '},
-        { model:data.Pw    , label:'Pw '},
-        { model:data.Pz    , label:'Pz '},
-        { model:data.Cdb   , label:'Cdb'},
-        { model:data.Ct    , label:'Ct '},
-        { model:data.Cda   , label:'Cda'},
-        { model:data.Lc    , label:'Lc '},
-        { model:data.Ks2   , label:'Ks2'},
-        { model:data.p     , label:'p  '},
-        { model:data.H     , label:'H  '},
-        { model:data.L     , label:'L  '},
-        { model:data.W     , label:'W  '},
-        { model:data.Lfv   , label:'Lfv'},
-        { model:data.Lw    , label:'Lw '},
-        { model:data.Ha    , label:'Ha '},
-        { model:data.Hc    , label:'Hc '},
-        { model:data.La    , label:'La '},
-        { model:data.Wa    , label:'Wa '},
-        { model:data.Td    , label:'Td '},
-        { model:data.Ks3   , label:'Ks3'}
+    var data = reactive({Pa:1} as InitialData);
+    
+    const a : InputDescription[] = [
+        { modelKey:'Pa'    , label:'Pa '},
+        { modelKey:'ra'    , label:'ra '},
+        { modelKey:'Lt'    , label:'Lt '},
+        { modelKey:'Pb'    , label:'Pb '},
+        { modelKey:'rp'    , label:'rp '},
+        { modelKey:'hz'    , label:'hz '},
+        { modelKey:'rf'    , label:'rf '},
+        { modelKey:'Lf'    , label:'Lf '},
+        { modelKey:'Pc'    , label:'Pc '},
+        { modelKey:'Lm'    , label:'Lm '},
+        { modelKey:'Ce'    , label:'Ce '},
+        { modelKey:'Ks1'   , label:'Ks1'},
+        { modelKey:'Uw'    , label:'Uw '},
+        { modelKey:'Pu'    , label:'Pu '},
+        { modelKey:'Pv'    , label:'Pv '},
+        { modelKey:'Pw'    , label:'Pw '},
+        { modelKey:'Pz'    , label:'Pz '},
+        { modelKey:'Cdb'   , label:'Cdb'},
+        { modelKey:'Ct'    , label:'Ct '},
+        { modelKey:'Cda'   , label:'Cda'},
+        { modelKey:'Lc'    , label:'Lc '},
+        { modelKey:'Ks2'   , label:'Ks2'},
+        { modelKey:'p'     , label:'p  '},
+        { modelKey:'H'     , label:'H  '},
+        { modelKey:'L'     , label:'L  '},
+        { modelKey:'W'     , label:'W  '},
+        { modelKey:'Lfv'   , label:'Lfv'},
+        { modelKey:'Lw'    , label:'Lw '},
+        { modelKey:'Ha'    , label:'Ha '},
+        { modelKey:'Hc'    , label:'Hc '},
+        { modelKey:'La'    , label:'La '},
+        { modelKey:'Wa'    , label:'Wa '},
+        { modelKey:'Td'    , label:'Td '},
+        { modelKey:'Ks3'   , label:'Ks3'}
     ]
 </script>
 <template>
   <div class="wrapper">
-    <ValueInput v-for="b in a" v-model="b.model" type="number" :label="b.label" />
-  </div>
+    <ValueInput v-for="b in a" v-model="(data as any)[b.modelKey]" type="number" :label="b.label" />
+    </div>
+    {{ data }}
 </template>
 <style scoped>
     .wrapper {
