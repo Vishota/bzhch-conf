@@ -1,6 +1,7 @@
 body {
     background-color: var(--back);
     color: var(--content);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 button, select, input {
     background-color: var(--blocks);
@@ -14,4 +15,10 @@ button:focus, select:focus, input:focus {
 ::selection {
     background-color: var(--accent);
     color: var(--dark);
+}
+a {
+    color: var(--accent);
+}
+a:hover {
+    text-decoration: underline;
 }

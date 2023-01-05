@@ -1,6 +1,8 @@
 p { margin: unset; }
+body { margin: unset; }
 input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
-input { outline: unset; }
+input, select { outline: unset; }
+a { text-decoration: unset; color: unset }

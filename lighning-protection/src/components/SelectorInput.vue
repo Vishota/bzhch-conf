@@ -2,7 +2,6 @@
 import TooltipComponent from './TooltipComponent.vue';
 
     const emits = defineEmits(['update:modelValue']);
-    //console.log(emits.call(null, 'update:modelValue', 1));
     
     var props = defineProps(['modelValue', 'label', 'default', 'options', 'tooltip']);
 

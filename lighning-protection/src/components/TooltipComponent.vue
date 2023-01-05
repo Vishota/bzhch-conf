@@ -9,14 +9,14 @@
         <div class="info-ico" @mouseenter="show = true" @mouseleave="show = false">
             <p>i</p>
         </div>
-        <div class="tooltip" v-show="show">
-            {{ text }}
+        <div class="tooltip" v-show="show" v-html="text.replaceAll('\n', '<br>')">
         </div>
     </div>
 </template>
 <style scoped>
     .box {
         margin: 2px;
+        display: inline-flex;
     }
     .info-ico {
         background-color: var(--accent);
@@ -25,7 +25,7 @@
         width: 20px;
         height: 20px;
         border-radius: 15px;
-        display: flex;
+        display: inline-flex;
         justify-content: center;
         align-items: center;
         cursor: pointer;
@@ -39,5 +39,6 @@
         box-sizing: border-box;
         padding: 10px;
         border-radius: 10px;
+        margin-top: 20px;
     }
 </style>
