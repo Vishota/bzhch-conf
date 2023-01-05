@@ -8,6 +8,7 @@
     import SaveDataComponent from './SaveDataComponent.vue';
     import LoadDataComponent from './LoadDataComponent.vue';
     import CommonCalculationResults from './CommonCalculationResults.vue';
+    import RisksCalculationResults from './RisksCalculationResults.vue';
 
     var data = reactive({Pa:1} as InitialData);
     
@@ -173,6 +174,11 @@
     <div class="gridwrapper">
         <CommonCalculationResults :data="data" />
     </div>
+    <h2>Элементы риска R1 поражения людей в здании</h2>
+    <div class="gridwrapper">
+        <RisksCalculationResults :data="data" />
+    </div>
+    <h2>Вердикт</h2>
 </template>
 <style scoped>
     .save {
