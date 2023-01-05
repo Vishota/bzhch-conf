@@ -9,6 +9,7 @@
     import LoadDataComponent from './LoadDataComponent.vue';
     import CommonCalculationResults from './CommonCalculationResults.vue';
     import RisksCalculationResults from './RisksCalculationResults.vue';
+    import VerdictComponent from './VerdictComponent.vue'
 
     var data = reactive({Pa:1} as InitialData);
     
@@ -179,6 +180,7 @@
         <RisksCalculationResults :data="data" />
     </div>
     <h2>Вердикт</h2>
+    <VerdictComponent :data="data" />
 </template>
 <style scoped>
     .save {
